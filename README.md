@@ -73,9 +73,8 @@ I am **Sahani Tripurari**, a professional freelance Full-Stack Developer special
 **Looking for a custom website or app?**
 Let's build something amazing together!
 
-- **Email:** [your-email@example.com](mailto:your-email@example.com)
-- **Portfolio:** [Your Portfolio Link]
-- **GitHub:** [@sahaniTripurari](https://github.com/sahaniTripurari)
+- **Email:** [sahnitrirpurari@example.com](mailto:your-email@example.com)
+- **GitHub:** [https://github.com/sahaniTripurari/GymWebsite](https://github.com/sahaniTripurari/GymWebsite)](https://github.com/sahaniTripurari)
 - **Services:** E-commerce, SaaS, Fitness Apps, Portfolio Sites, and more.
 
 ---
