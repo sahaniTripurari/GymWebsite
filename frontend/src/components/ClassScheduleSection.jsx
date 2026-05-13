@@ -55,9 +55,9 @@ const DaysContainer = styled.div`
 
 const DayButton = styled.button`
   padding: 12px 25px;
-  background: ${props => props.active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.05)'};
-  color: ${props => props.active ? '#000' : '#fff'};
-  border: 1px solid ${props => props.active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
+  background: ${props => props.$active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.05)'};
+  color: ${props => props.$active ? '#000' : '#fff'};
+  border: 1px solid ${props => props.$active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
   border-radius: 12px;
   font-weight: 800;
   text-transform: uppercase;
@@ -70,7 +70,7 @@ const DayButton = styled.button`
   }
 
   &:hover {
-    background: ${props => props.active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
+    background: ${props => props.$active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
   }
 `;
 
@@ -179,7 +179,7 @@ const ClassScheduleSection = () => {
         {Object.keys(scheduleData).map(day => (
           <DayButton 
             key={day} 
-            active={activeDay === day}
+            $active={activeDay === day}
             onClick={() => setActiveDay(day)}
           >
             {day}

@@ -72,7 +72,7 @@ const Card = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 4px;
-    background: ${props => props.isBest ? props.theme.colors.secondary : 'transparent'};
+    background: ${props => props.$isBest ? props.theme.colors.secondary : 'transparent'};
   }
 
   &:hover {
@@ -122,9 +122,9 @@ const Feature = styled.li`
 const SelectBtn = styled(motion.button)`
   width: 100%;
   padding: 20px;
-  background: ${props => props.isBest ? props.theme.colors.secondary : 'rgba(255,255,255,0.05)'};
-  color: ${props => props.isBest ? '#000' : '#fff'};
-  border: 1px solid ${props => props.isBest ? 'transparent' : 'rgba(255,255,255,0.1)'};
+  background: ${props => props.$isBest ? props.theme.colors.secondary : 'rgba(255,255,255,0.05)'};
+  color: ${props => props.$isBest ? '#000' : '#fff'};
+  border: 1px solid ${props => props.$isBest ? 'transparent' : 'rgba(255,255,255,0.1)'};
   border-radius: 14px;
   font-weight: 800;
   font-size: 1rem;
@@ -272,7 +272,7 @@ const MembershipSection = () => {
         {plans.map((p, i) => (
           <Card 
             key={i}
-            isBest={p.isBest}
+            $isBest={p.isBest}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -284,7 +284,7 @@ const MembershipSection = () => {
               {p.benefits && p.benefits.map((f, j) => <Feature key={j}>{f}</Feature>)}
             </FeatureList>
             <SelectBtn 
-              isBest={p.isBest}
+              $isBest={p.isBest}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handlePurchase(p)}

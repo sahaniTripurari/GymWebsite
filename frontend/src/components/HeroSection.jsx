@@ -73,7 +73,7 @@ const Badge = styled(motion.span)`
 `;
 
 const Title = styled(motion.h1)`
-  font-family: ${props => props.currentfont};
+  font-family: ${props => props.$currentfont};
   font-size: clamp(2.5rem, 7vw, 5.5rem); /* Smaller size so it doesn't cover everything */
   font-weight: 900;
   color: #fff;
@@ -217,7 +217,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           variants={textVariants}
-          currentfont={fonts[fontIndex]}
+          $currentfont={fonts[fontIndex]}
         >
           Awaken Your <span>Inner Power</span>
         </Title>
