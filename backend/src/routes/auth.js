@@ -12,7 +12,12 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 
 // @route   GET /api/auth/me
-// @desc    Get current user details
-router.get('/me', protect, getMe);
+// @desc    Get current user details (Soft check to keep console clean)
+router.get('/me', (req, res, next) => {
+  const token = req.cookies?.token || req.header('Authorization')?.replace('Bearer ', '');
+  if (!token) return res.json(null);
+  next();
+}, protect, getMe);
+
 
 module.exports = router;
