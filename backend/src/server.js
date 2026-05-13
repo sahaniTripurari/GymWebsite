@@ -27,9 +27,10 @@ app.use(rateLimit({
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({ 
-  origin: process.env.CLIENT_URL || 'http://localhost:5173', 
+  origin: ['http://localhost:5173', 'http://localhost:5174', process.env.CLIENT_URL].filter(Boolean), 
   credentials: true 
 }));
+
 app.use(helmet());
 app.use(morgan('dev'));
 
