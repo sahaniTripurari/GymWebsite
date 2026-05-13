@@ -9,6 +9,10 @@ const Section = styled.section`
   padding: 120px 8%;
   background: #0a0a0a;
   text-align: center;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
@@ -38,6 +42,11 @@ const Grid = styled.div`
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -50,6 +59,11 @@ const Card = styled(motion.div)`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 40px 25px;
+    border-radius: 18px;
+  }
 
   &::before {
     content: '';

@@ -5,6 +5,10 @@ import { motion } from 'framer-motion';
 const Section = styled.section`
   padding: 120px 8%;
   background: #0a0a0a;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
@@ -36,6 +40,11 @@ const Grid = styled.div`
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -45,6 +54,10 @@ const Card = styled(motion.div)`
   border: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 35px 25px;
+  }
+
   &::before {
     content: '"';
     position: absolute;
@@ -54,6 +67,12 @@ const Card = styled(motion.div)`
     font-family: serif;
     color: rgba(204, 255, 0, 0.1);
     line-height: 1;
+
+    @media (max-width: ${props => props.theme.breakpoints.md}) {
+      font-size: 4rem;
+      top: 10px;
+      right: 20px;
+    }
   }
 `;
 

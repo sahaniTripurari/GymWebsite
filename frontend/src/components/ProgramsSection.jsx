@@ -6,11 +6,21 @@ import api from '../api';
 const Section = styled.section`
   padding: 120px 8%;
   background: #0a0a0a;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
   margin-bottom: 80px;
   max-width: 800px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    margin-bottom: 40px;
+    text-align: center;
+    margin: 0 auto 40px;
+  }
 `;
 
 const Badge = styled.span`
@@ -32,8 +42,13 @@ const Title = styled.h2`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -43,6 +58,10 @@ const Card = styled(motion.div)`
   position: relative;
   background: #111;
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    height: 400px;
+  }
 
   &:hover img {
     transform: scale(1.05);

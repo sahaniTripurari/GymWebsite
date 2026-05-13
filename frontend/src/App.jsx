@@ -61,6 +61,62 @@ const ScrollToTop = () => {
   return null;
 };
 
+const CTASection = styled.section`
+  padding: 150px 5%;
+  text-align: center;
+  background: linear-gradient(135deg, #ccff00 0%, #a2cc00 100%);
+  color: #000;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
+`;
+
+const CTAHeading = styled.h2`
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  marginBottom: 20px;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  line-height: 1;
+`;
+
+const CTAText = styled.p`
+  opacity: 0.8;
+  margin: 0 auto 40px;
+  font-size: 1.2rem;
+  max-width: 700px;
+  font-weight: 600;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+`;
+
+const CTAButton = styled.button`
+  padding: 22px 60px;
+  background: #000;
+  color: #fff;
+  fontWeight: 800;
+  borderRadius: 14px;
+  fontSize: 1.1rem;
+  textTransform: uppercase;
+  boxShadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 18px 40px;
+    width: 100%;
+    max-width: 300px;
+  }
+`;
+
 const Home = () => (
   <>
     <HeroSection />
@@ -89,29 +145,16 @@ const Home = () => (
       <MembershipSection />
     </div>
 
-    {/* Modern CTA with Color Accent */}
-    <section style={{ 
-      padding: '150px 5%', 
-      textAlign: 'center', 
-      background: 'linear-gradient(135deg, #ccff00 0%, #a2cc00 100%)',
-      color: '#000'
-    }}>
-      <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 900, marginBottom: '20px', letterSpacing: '-2px', textTransform: 'uppercase' }}>
-        Start Your Journey Today
-      </h2>
-      <p style={{ opacity: 0.8, marginBottom: '40px', fontSize: '1.2rem', maxWidth: '700px', margin: '0 auto 40px', fontWeight: 600 }}>
+    <CTASection>
+      <CTAHeading>Start Your Journey Today</CTAHeading>
+      <CTAText>
         Join our community of elite athletes and transform your life with personalized coaching and world-class facilities.
-      </p>
-      <button style={{ 
-        padding: '22px 60px', background: '#000', color: '#fff', 
-        fontWeight: 800, borderRadius: '14px', fontSize: '1.1rem', 
-        textTransform: 'uppercase', boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
-      }}>
-        Get Membership
-      </button>
-    </section>
+      </CTAText>
+      <CTAButton>Get Membership</CTAButton>
+    </CTASection>
   </>
 );
+
 
 function App() {
   return (

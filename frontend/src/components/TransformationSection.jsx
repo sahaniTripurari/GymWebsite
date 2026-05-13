@@ -5,6 +5,10 @@ import { motion } from 'framer-motion';
 const Section = styled.section`
   padding: 120px 8%;
   background: #0a0a0a;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
@@ -39,6 +43,11 @@ const Grid = styled.div`
   }
   &::-webkit-scrollbar-track { background: #111; }
   &::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    gap: 20px;
+    padding-bottom: 30px;
+  }
 `;
 
 const Item = styled(motion.div)`
@@ -49,9 +58,14 @@ const Item = styled(motion.div)`
   position: relative;
   background: #111;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex: 0 0 320px;
     height: 450px;
+  }
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex: 0 0 280px;
+    height: 400px;
   }
 `;
 

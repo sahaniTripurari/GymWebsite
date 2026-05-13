@@ -5,6 +5,10 @@ import { motion } from 'framer-motion';
 const Section = styled.section`
   padding: 120px 8%;
   background: #050505;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
@@ -34,6 +38,11 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const FacilityCard = styled(motion.div)`
@@ -42,6 +51,11 @@ const FacilityCard = styled(motion.div)`
   overflow: hidden;
   position: relative;
   cursor: pointer;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    height: 350px;
+  }
+
 
   &::before {
     content: '';

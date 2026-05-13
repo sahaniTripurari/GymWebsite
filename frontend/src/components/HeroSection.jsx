@@ -45,7 +45,11 @@ const Content = styled(motion.div)`
   text-align: center;
   padding: 0 5%;
   perspective: 1200px;
-  margin-top: 50px; /* Shifted down slightly to clear the upper part of the video */
+  margin-top: 50px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    margin-top: 20px;
+  }
 `;
 
 const Badge = styled(motion.span)`
@@ -60,6 +64,12 @@ const Badge = styled(motion.span)`
   margin-bottom: 25px;
   display: inline-block;
   box-shadow: 0 0 20px rgba(204, 255, 0, 0.3);
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Title = styled(motion.h1)`
@@ -94,6 +104,11 @@ const DynamicText = styled(motion.div)`
   border-bottom: 1px solid rgba(255,255,255,0.2);
   display: inline-block;
   padding: 10px 0;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+  }
 `;
 
 const Subtitle = styled(motion.p)`
@@ -111,6 +126,12 @@ const ButtonGroup = styled(motion.div)`
   gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+  }
 `;
 
 const PrimaryButton = styled(motion.a)`

@@ -6,6 +6,10 @@ const FooterContainer = styled.footer`
   padding: 120px 8% 60px;
   background: #050505;
   border-top: 1px solid #111;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5% 40px;
+  }
 `;
 
 const Top = styled.div`
@@ -13,6 +17,13 @@ const Top = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 80px;
   margin-bottom: 100px;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    gap: 40px;
+    margin-bottom: 60px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 `;
 
 const Column = styled.div``;
@@ -63,7 +74,7 @@ const Bottom = styled.div`
   font-size: 0.85rem;
   font-weight: 600;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
     gap: 30px;
     text-align: center;
@@ -73,6 +84,11 @@ const Bottom = styled.div`
 const SocialLinks = styled.div`
   display: flex;
   gap: 40px;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    gap: 20px;
+  }
+
   span {
     cursor: pointer;
     transition: color 0.3s ease;
@@ -86,7 +102,7 @@ const Footer = () => {
       <Top>
         <Column>
           <Logo to="/">GYM<span>FIT</span></Logo>
-          <p style={{color: '#777', fontSize: '0.95rem', lineHeight: '1.7', maxWidth: '300px'}}>
+          <p style={{color: '#777', fontSize: '0.95rem', lineHeight: '1.7', maxWidth: '300px', margin: '0 auto'}}>
             A premium space dedicated to the pursuit of physical and mental excellence. Push your limits with us.
           </p>
         </Column>

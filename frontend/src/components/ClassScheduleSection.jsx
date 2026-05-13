@@ -5,6 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Section = styled.section`
   padding: 120px 8%;
   background: #111;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 80px 5%;
+  }
 `;
 
 const Header = styled.div`
@@ -36,6 +40,17 @@ const DaysContainer = styled.div`
   gap: 15px;
   margin-bottom: 50px;
   flex-wrap: wrap;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    flex-wrap: nowrap;
+    gap: 10px;
+    &::-webkit-scrollbar { display: none; }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
 const DayButton = styled.button`
@@ -47,7 +62,13 @@ const DayButton = styled.button`
   font-weight: 800;
   text-transform: uppercase;
   transition: all 0.3s ease;
+  white-space: nowrap;
   
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
   &:hover {
     background: ${props => props.active ? props.theme.colors.secondary : 'rgba(255, 255, 255, 0.1)'};
   }
@@ -70,6 +91,13 @@ const ClassCard = styled.div`
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.05);
@@ -94,6 +122,14 @@ const ClassInfo = styled.div`
 
 const ClassTime = styled.div`
   text-align: right;
+
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
   span {
     display: block;
     font-size: 1.2rem;

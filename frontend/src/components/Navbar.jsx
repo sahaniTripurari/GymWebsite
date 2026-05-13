@@ -23,7 +23,7 @@ const NavWrapper = styled.div`
 `;
 
 const NavContainer = styled(motion.nav)`
-  width: 90%;
+  width: 95%;
   max-width: 1300px;
   height: 70px;
   background: rgba(255, 255, 255, 0.03);
@@ -36,8 +36,10 @@ const NavContainer = styled(motion.nav)`
   padding: 0 40px;
   position: relative;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     padding: 0 20px;
+    height: 60px;
+    border-radius: 12px;
   }
 `;
 
@@ -55,7 +57,7 @@ const DesktopMenu = styled.div`
   align-items: center;
   gap: 40px;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
 `;
@@ -75,7 +77,7 @@ const NavActions = styled.div`
   align-items: center;
   gap: 25px;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
 `;
@@ -109,26 +111,26 @@ const MobileToggle = styled.button`
   cursor: pointer;
   z-index: 1001;
 
-  @media (max-width: 900px) {
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
   }
 `;
 
 const MobileMenu = styled(motion.div)`
-  position: absolute;
-  top: 80px;
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;
-  background: rgba(15, 15, 15, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 30px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(25px);
+  padding: 100px 40px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 35px;
   text-align: center;
-  z-index: 999;
+  z-index: 1000;
 `;
 
 const MobileMenuLink = styled(Link)`

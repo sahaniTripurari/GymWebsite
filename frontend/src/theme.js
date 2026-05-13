@@ -20,5 +20,13 @@ export const theme = {
     soft: '0 8px 30px rgba(0, 0, 0, 0.3)',
     medium: '0 20px 40px rgba(0, 0, 0, 0.5)',
     glow: '0 0 20px rgba(204, 255, 0, 0.2)',
+  },
+  breakpoints: {
+    xs: '375px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
   }
 };
+
