@@ -5,24 +5,38 @@ import heroImg from '../assets/hero-bg.png';
 
 const HeroContainer = styled.section`
   height: 100vh;
-  width: 100%;
+  height: 100svh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
   background: #000;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 `;
 
 const BackgroundVideo = styled.video`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
-  opacity: 0.85; /* Increased for better clarity */
+  object-position: center;
+  opacity: 0.7;
   z-index: 1;
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    opacity: 0.6;
+    /* Extra scale to ensure no edges are visible on mobile */
+    transform: scale(1.1);
+  }
 `;
 
 const Overlay = styled.div`
@@ -31,9 +45,10 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.2) 0%, 
-    rgba(0, 0, 0, 0.4) 50%, 
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
     rgba(0, 0, 0, 0.9) 100%
   );
   z-index: 2;
@@ -119,6 +134,11 @@ const Subtitle = styled(motion.p)`
   font-weight: 500;
   line-height: 1.6;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
 `;
 
 const ButtonGroup = styled(motion.div)`
@@ -185,6 +205,48 @@ const fonts = [
   "'Montserrat', sans-serif",
   "'Bebas Neue', cursive"
 ];
+
+const ScrollIndicator = styled(motion.div)`
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: ${props => props.theme.colors.secondary};
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+`;
+
+const MouseIcon = styled.div`
+  width: 20px;
+  height: 35px;
+  border: 2px solid ${props => props.theme.colors.secondary};
+  border-radius: 20px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: ${props => props.theme.colors.secondary};
+    border-radius: 50%;
+    animation: scrollAnim 1.5s infinite;
+  }
+
+  @keyframes scrollAnim {
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 15px); opacity: 0; }
+  }
+`;
 
 const HeroSection = () => {
   const [fontIndex, setFontIndex] = useState(0);
@@ -259,8 +321,18 @@ const HeroSection = () => {
           </SecondaryButton>
         </ButtonGroup>
       </Content>
+
+      <ScrollIndicator
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3, duration: 1 }}
+      >
+        <span>Scroll</span>
+        <MouseIcon />
+      </ScrollIndicator>
     </HeroContainer>
   );
 };
+
 
 export default HeroSection;
