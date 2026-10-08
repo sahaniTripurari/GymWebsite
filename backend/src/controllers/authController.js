@@ -32,7 +32,7 @@ exports.registerUser = async (req, res) => {
     };
 
     res
-      .cookie('token', token, { httpOnly: true, sameSite: 'strict', secure: process.env.NODE_ENV === 'production' })
+      .cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true })
       .json({ msg: 'Registration successful', user: userResponse, token });
   } catch (err) {
     console.error(err.message);
@@ -65,7 +65,7 @@ exports.loginUser = async (req, res) => {
     };
 
     res
-      .cookie('token', token, { httpOnly: true, sameSite: 'strict', secure: process.env.NODE_ENV === 'production' })
+      .cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true })
       .json({ msg: 'Login successful', user: userResponse, token });
   } catch (err) {
     console.error(err.message);
