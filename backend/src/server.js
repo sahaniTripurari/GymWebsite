@@ -57,5 +57,9 @@ app.use('/api/admin', adminRoutes);
 // Root endpoint
 app.get('/', (req, res) => res.send('GymFitness API running'));
 
-// Start server
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+// Start server only if not in production (Vercel uses module.exports)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+}
+
+module.exports = app;
